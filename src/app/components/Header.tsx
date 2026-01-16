@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,12 +32,12 @@ export default function Header() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
         {/* Brand name (right side in RTL) */}
-        <a
+        <Link
           href="/"
           className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors"
         >
           טלי מפציר
-        </a>
+        </Link>
 
         {/* Navigation links (left side in RTL) - hidden on mobile */}
         <ul className="hidden md:flex items-center gap-8">

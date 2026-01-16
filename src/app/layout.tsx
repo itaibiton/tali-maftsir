@@ -9,8 +9,8 @@ const heebo = Heebo({
 });
 
 export const metadata: Metadata = {
-  title: "טלי מפציר | ליווי אישי בשיטת סאטיר",
-  description: "ליווי אישי ומקצועי בשיטת סאטיר לצמיחה אישית, תקשורת זוגית ומשפחתית",
+  title: "טלי מפציר | ליווי אישי בשיטת סאטיה",
+  description: "ליווי אישי ומקצועי בשיטת סאטיה לצמיחה אישית, תקשורת זוגית ומשפחתית",
 };
 
 export default function RootLayout({
