@@ -12,22 +12,24 @@ A Hebrew (RTL) landing page for Tali Maftsir, a personal development coach using
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Hero section with professional photo, headline, and primary CTA — v1.0
+- [x] "About Tali" section conveying her unique qualities and approach — v1.0
+- [x] Main service: 1:1 Satir coaching process presentation — v1.0
+- [x] Secondary service: "Clear Way" one-time sessions as lower-commitment entry — v1.0
+- [x] B2B section for companies seeking employee coaching retainer — v1.0
+- [x] Two CTAs: individuals → WhatsApp discovery call, companies → business inquiry — v1.0
+- [x] Testimonials section (placeholder structure, content TBD) — v1.0
+- [x] FAQ section addressing common questions (session count, pricing, process) — v1.0
+- [x] Responsive design (mobile-first for Israeli audience) — v1.0
+- [x] RTL Hebrew typography and layout — v1.0
+- [x] Green color palette (light green base with complementary tones) — v1.0
+- [x] Facebook link in footer — v1.0
 
 ### Active
 
-- [ ] Hero section with professional photo, headline, and primary CTA
-- [ ] "About Tali" section conveying her unique qualities and approach
-- [ ] Main service: 1:1 Satir coaching process presentation
-- [ ] Secondary service: "Clear Way" one-time sessions as lower-commitment entry
-- [ ] B2B section for companies seeking employee coaching retainer
-- [ ] Two CTAs: individuals → WhatsApp discovery call, companies → business inquiry
-- [ ] Testimonials section (placeholder structure, content TBD)
-- [ ] FAQ section addressing common questions (session count, pricing, process)
-- [ ] Responsive design (mobile-first for Israeli audience)
-- [ ] RTL Hebrew typography and layout
-- [ ] Green color palette (light green base with complementary tones)
-- [ ] Facebook link in footer
+- [ ] Replace placeholder testimonials with real client feedback
+- [ ] Configure actual WhatsApp number (currently placeholder)
+- [ ] Domain purchase and deployment setup
 
 ### Out of Scope
 
@@ -108,12 +110,21 @@ A Hebrew (RTL) landing page for Tali Maftsir, a personal development coach using
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| WhatsApp over Calendly | Tali prefers personal touch, multi-step process improves conversion | — Pending |
-| Two audience paths on one page | Serves both individuals and B2B without separate pages | — Pending |
-| Green color palette | Tali's strong preference, conveys growth/calm | — Pending |
-| Include Clear Way as secondary | Lower-commitment entry point to main coaching | — Pending |
-| Next.js + Tailwind | Modern stack with excellent RTL support | — Pending |
-| Skip logo for v1 | Tali unsure of purpose, can add later | — Pending |
+| WhatsApp over Calendly | Tali prefers personal touch, multi-step process improves conversion | ✓ Good - 4 WhatsApp CTAs placed throughout page |
+| Two audience paths on one page | Serves both individuals and B2B without separate pages | ✓ Good - B2B section has distinct business CTA |
+| Green color palette | Tali's strong preference, conveys growth/calm | ✓ Good - Sage green (#8FBC8F) with warm beige accent |
+| Include Clear Way as secondary | Lower-commitment entry point to main coaching | ✓ Good - Card styling differentiates from main service |
+| Next.js + Tailwind | Modern stack with excellent RTL support | ✓ Good - Next.js 16, Tailwind v4, no RTL issues |
+| Skip logo for v1 | Tali unsure of purpose, can add later | ✓ Good - Brand name text works well |
+| Framer Motion for animations | React-native, simpler than GSAP, smaller bundle | ✓ Good - Smooth entrance and scroll animations |
+| Tailwind v4 CSS-based theming | Uses @theme directive instead of config file | ✓ Good - Clean CSS variables approach |
+
+## Context
+
+**Shipped:** v1.0 MVP (2026-01-16)
+**Tech stack:** Next.js 16.1.2, React 19, Tailwind CSS v4, Framer Motion, TypeScript
+**Codebase:** 1,045 LOC across 55 files
+**Status:** Landing page complete, ready for deployment
 
 ---
-*Last updated: 2025-01-16 after initialization*
+*Last updated: 2026-01-16 after v1.0 milestone*
