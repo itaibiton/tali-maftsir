@@ -35,3 +35,16 @@
 - Removed old portrait image section
 - Preserved all Hebrew text and basic animations
 
+### UI-002: Style illustration column ✅
+**Completed:** 2026-01-16
+
+**Changes made:**
+- Added Next.js Image import for optimized image handling
+- Replaced placeholder div with actual hero-illustration.png
+- Used `next/image` with `priority` prop for LCP optimization
+- Responsive sizing: `max-w-md` on mobile, `lg:max-w-lg` on desktop
+- Added gentle glow effect using primary-light color: `drop-shadow-[0_8px_30px_rgba(193,225,193,0.5)]`
+- Image maintains aspect ratio with `object-contain`
+- Added subtle Framer Motion entrance animation (fade + scale)
+- Image properly centered in flex container
+

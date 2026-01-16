@@ -35,7 +35,7 @@
         "Optional subtle shadow or glow effect"
       ],
       "dependencies": ["UI-001"],
-      "pass": false
+      "pass": true
     },
     "UI-003": {
       "name": "Style content column",

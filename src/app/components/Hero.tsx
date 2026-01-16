@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -8,14 +9,24 @@ export default function Hero() {
       {/* Two-column grid: illustration (left) | content (right) */}
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-        {/* LEFT column - Illustration placeholder */}
-        <div className="order-2 lg:order-1 flex items-center justify-center">
-          <div className="w-full aspect-square max-w-md lg:max-w-lg bg-[var(--color-primary)]/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-[var(--color-primary)]/30">
-            <span className="text-[var(--color-neutral-600)] text-sm">
-              Illustration Placeholder
-            </span>
+        {/* LEFT column - Hero illustration */}
+        <motion.div
+          className="order-2 lg:order-1 flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+        >
+          <div className="relative w-full max-w-md lg:max-w-lg">
+            <Image
+              src="/images/hero-illustration.png"
+              alt="Tali Maftsir - Personal coaching illustration"
+              width={512}
+              height={512}
+              priority
+              className="w-full h-auto object-contain drop-shadow-[0_8px_30px_rgba(193,225,193,0.5)]"
+            />
           </div>
-        </div>
+        </motion.div>
 
         {/* RIGHT column - Content (title, subtitle, CTA) */}
         <div className="order-1 lg:order-2 flex flex-col items-center lg:items-end text-center lg:text-right">
