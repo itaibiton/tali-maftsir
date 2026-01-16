@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Header from "./components/Header";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--background)]">
+      <Header />
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 md:px-12 lg:px-20">
