@@ -15,7 +15,7 @@ None
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Foundation** - Next.js + Tailwind setup with RTL and green palette ✓
-- [ ] **Phase 2: Hero & Navigation** - Hero section with photo, headline, WhatsApp CTA
+- [x] **Phase 2: Hero & Navigation** - Hero section with photo, headline, WhatsApp CTA ✓
 - [ ] **Phase 3: About & Services** - About Tali, 1:1 coaching, Clear Way sessions
 - [ ] **Phase 4: B2B & Social Proof** - B2B retainer section, testimonials structure
 - [ ] **Phase 5: FAQ & Footer** - FAQ section, footer with Facebook link
@@ -67,7 +67,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 1/1 | Complete | 2026-01-16 |
-| 2. Hero & Navigation | 0/TBD | Not started | - |
+| 2. Hero & Navigation | 1/1 | Complete | 2026-01-16 |
 | 3. About & Services | 0/TBD | Not started | - |
 | 4. B2B & Social Proof | 0/TBD | Not started | - |
 | 5. FAQ & Footer | 0/TBD | Not started | - |
