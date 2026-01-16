@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AboutSection from "./components/AboutSection";
 import CoachingSection from "./components/CoachingSection";
+import ClearWaySection from "./components/ClearWaySection";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <CoachingSection />
+      <ClearWaySection />
     </div>
   );
 }
