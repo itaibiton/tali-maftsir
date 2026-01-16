@@ -4,6 +4,7 @@ import AboutSection from "./components/AboutSection";
 import CoachingSection from "./components/CoachingSection";
 import ClearWaySection from "./components/ClearWaySection";
 import B2BSection from "./components/B2BSection";
+import TestimonialsSection from "./components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <CoachingSection />
       <ClearWaySection />
       <B2BSection />
+      <TestimonialsSection />
     </div>
   );
 }
