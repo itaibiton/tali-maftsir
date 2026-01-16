@@ -5,32 +5,32 @@
 See: .planning/PROJECT.md (updated 2025-01-16)
 
 **Core value:** Convert visitors into discovery call bookings
-**Current focus:** Phase 1 — Foundation
+**Current focus:** Phase 1 — Foundation (Complete)
 
 ## Current Position
 
 Phase: 1 of 6 (Foundation)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-01-16 — Project initialized
+Plan: 1 of 1 in current phase
+Status: Phase complete
+Last activity: 2026-01-16 — Completed 01-01-PLAN.md
 
-Progress: ░░░░░░░░░░ 0%
+Progress: █░░░░░░░░░ 17%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: —
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 7 min
+- Total execution time: 0.1 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| — | — | — | — |
+| 1. Foundation | 1 | 7 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: —
+- Last 5 plans: 7m
 - Trend: —
 
 ## Accumulated Context
@@ -40,7 +40,11 @@ Progress: ░░░░░░░░░░ 0%
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
-(None yet)
+| Phase | Decision | Rationale |
+|-------|----------|-----------|
+| 01-01 | Tailwind v4 CSS-based theming | Uses @theme directive instead of config file |
+| 01-01 | Green palette: #8FBC8F primary | Sage green conveys calm, growth |
+| 01-01 | Heebo font weights 400-700 | Hebrew font for landing page text |
 
 ### Deferred Issues
 
@@ -53,5 +57,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-16
-Stopped at: Project initialization complete
+Stopped at: Completed 01-01-PLAN.md (Phase 1 complete)
 Resume file: None
