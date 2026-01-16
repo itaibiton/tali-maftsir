@@ -1,0 +1,145 @@
+{
+  "project": "Hero Section Redesign",
+  "version": "1.0.0",
+  "created": "2026-01-16",
+  "completion_promise": "HERO-SECTION COMPLETE",
+
+  "context": {
+    "tech_stack": [
+      "Next.js 16.1.2",
+      "React 19.2.3",
+      "Tailwind CSS 4",
+      "Framer Motion 12.26.2"
+    ],
+    "i18n": "Hebrew RTL with Heebo font",
+    "theme": "Light warm theme with green primary (#8FBC8F)",
+    "existing_components": [
+      "src/app/components/Hero.tsx"
+    ],
+    "assets": [
+      "/public/images/hero-illustration.png",
+      "/public/images/hero-no-bg.png"
+    ],
+    "components_to_build": [
+      "Redesigned Hero with two-column layout",
+      "Animation on left (illustration-right)",
+      "Title, subtitle, WhatsApp CTA on right"
+    ]
+  },
+
+  "user_stories": [
+    {
+      "id": "UI-01",
+      "title": "Restructure Hero to two-column layout",
+      "description": "Convert the current centered Hero layout to a two-column grid: animation/illustration on the LEFT, text content (title, subtitle, CTA) on the RIGHT. For RTL layout, this means illustration appears on the visual left side.",
+      "agent": "ui-designer",
+      "acceptance_criteria": [
+        "Hero uses CSS Grid or Flexbox for two-column layout",
+        "Left column reserved for illustration",
+        "Right column contains title, subtitle, and WhatsApp CTA",
+        "Layout works correctly in RTL context",
+        "Section maintains full viewport height on desktop"
+      ],
+      "dependencies": [],
+      "pass": false
+    },
+    {
+      "id": "UI-02",
+      "title": "Add illustration with entrance animation",
+      "description": "Place hero-illustration.png in the left column with a polished Framer Motion entrance animation. The animation should complement the overall design and feel organic.",
+      "agent": "ui-designer",
+      "acceptance_criteria": [
+        "hero-illustration.png displayed in left column",
+        "Framer Motion entrance animation (fade, slide, or scale)",
+        "Animation timing feels natural (0.6-1.2s duration)",
+        "Image is responsive and maintains aspect ratio",
+        "Animation does not block or delay text content"
+      ],
+      "dependencies": ["UI-01"],
+      "pass": false
+    },
+    {
+      "id": "UI-03",
+      "title": "Style title and subtitle in right column",
+      "description": "Position and style the headline and subheadline in the right column. Text should be right-aligned for RTL Hebrew, with proper typography hierarchy.",
+      "agent": "ui-designer",
+      "acceptance_criteria": [
+        "Title uses existing Hebrew headline text",
+        "Subtitle uses existing Hebrew subheadline text",
+        "Text is right-aligned (RTL appropriate)",
+        "Typography hierarchy is clear (title larger than subtitle)",
+        "Uses existing color variables (--color-primary-dark, etc.)",
+        "Framer Motion staggered entrance animations"
+      ],
+      "dependencies": ["UI-01"],
+      "pass": false
+    },
+    {
+      "id": "UI-04",
+      "title": "Style WhatsApp CTA button",
+      "description": "Position the WhatsApp CTA button below the subtitle in the right column with proper styling and hover effects.",
+      "agent": "ui-designer",
+      "acceptance_criteria": [
+        "WhatsApp button positioned below subtitle",
+        "Button uses primary color scheme",
+        "Hover/focus states with smooth transitions",
+        "WhatsApp icon visible",
+        "Framer Motion entrance animation (after title/subtitle)"
+      ],
+      "dependencies": ["UI-03"],
+      "pass": false
+    },
+    {
+      "id": "UI-05",
+      "title": "Implement responsive mobile layout",
+      "description": "Make the Hero section responsive for mobile devices. On smaller screens, stack the columns vertically with illustration on top, text content below.",
+      "agent": "ui-designer",
+      "acceptance_criteria": [
+        "On mobile (< 768px): single column, stacked layout",
+        "Illustration appears above text content on mobile",
+        "Text remains readable on all screen sizes",
+        "Touch-friendly button sizing on mobile",
+        "Smooth breakpoint transitions"
+      ],
+      "dependencies": ["UI-04"],
+      "pass": false
+    },
+    {
+      "id": "UI-06",
+      "title": "Polish animations and visual refinements",
+      "description": "Fine-tune all animations, spacing, and visual details. Ensure the overall composition is balanced and professional.",
+      "agent": "ui-designer",
+      "acceptance_criteria": [
+        "Animation sequence feels cohesive",
+        "Proper spacing and alignment throughout",
+        "No visual glitches or layout shifts",
+        "Performance: animations smooth at 60fps",
+        "Decorative elements (if any) complement the design"
+      ],
+      "dependencies": ["UI-05"],
+      "pass": false
+    },
+    {
+      "id": "INT-01",
+      "title": "Final verification and cleanup",
+      "description": "Run build, verify no TypeScript errors, and ensure the Hero section renders correctly.",
+      "agent": "direct",
+      "acceptance_criteria": [
+        "npm run build passes without errors",
+        "No TypeScript type errors",
+        "No console errors or warnings",
+        "Hero renders correctly on dev server",
+        "All previous acceptance criteria still met"
+      ],
+      "dependencies": ["UI-06"],
+      "pass": false
+    }
+  ],
+
+  "implementation_order": [
+    "Phase 1: Layout Structure - UI-01",
+    "Phase 2: Content Implementation - UI-02, UI-03, UI-04",
+    "Phase 3: Responsiveness - UI-05",
+    "Phase 4: Polish & QA - UI-06, INT-01"
+  ]
+}

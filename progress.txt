@@ -1,0 +1,37 @@
+# Hero Section Redesign - Progress Log
+
+## Project Started: 2026-01-16
+
+### Initial State
+- Current Hero: Single-column centered layout with portrait image
+- Uses Framer Motion for animations
+- Hebrew text with RTL alignment
+- WhatsApp CTA button
+
+### Target State
+- Two-column grid: illustration LEFT, content RIGHT
+- Use hero-illustration.png instead of portrait
+- Maintain all existing Hebrew text
+- Enhanced Framer Motion animations
+
+---
+
+## Progress Log
+
+(Entries will be added as tasks are completed)
+
+### UI-001: Create two-column grid layout ✅
+**Completed:** 2026-01-16
+
+**Changes made:**
+- Restructured Hero from single-column centered to two-column CSS grid
+- Desktop: `lg:grid-cols-2` with illustration LEFT, content RIGHT
+- Mobile: Single column with content first (`order-1`), illustration second (`order-2`)
+- Added placeholder div for illustration column
+- Content column uses `lg:text-right` and `lg:items-end` for RTL alignment
+- Full viewport height maintained with `min-h-screen`
+- Gap responsive: `gap-8 lg:gap-12`
+- Max width container: `max-w-7xl mx-auto`
+- Removed old portrait image section
+- Preserved all Hebrew text and basic animations
+

@@ -1,0 +1,100 @@
+{
+  "project": "Hero Section Redesign",
+  "description": "Two-column layout with illustration LEFT, content RIGHT (RTL Hebrew site)",
+  "implementation_order": [
+    "phase1_layout",
+    "phase2_content",
+    "phase3_animations",
+    "phase4_responsive"
+  ],
+  "tasks": {
+    "UI-001": {
+      "name": "Create two-column grid layout",
+      "phase": "phase1_layout",
+      "agent": "ui-designer",
+      "description": "Restructure Hero to use CSS grid with two columns: illustration on LEFT, content on RIGHT. Full viewport height on desktop.",
+      "acceptance_criteria": [
+        "Two-column grid layout on desktop",
+        "Illustration column on LEFT side",
+        "Content column on RIGHT side (RTL)",
+        "Full viewport height (min-h-screen)",
+        "Proper spacing and alignment"
+      ],
+      "dependencies": [],
+      "pass": true
+    },
+    "UI-002": {
+      "name": "Style illustration column",
+      "phase": "phase1_layout",
+      "agent": "ui-designer",
+      "description": "Add hero-illustration.png to the LEFT column with proper sizing, centering, and subtle styling.",
+      "acceptance_criteria": [
+        "Use /public/images/hero-illustration.png",
+        "Image properly centered in column",
+        "Responsive sizing",
+        "Optional subtle shadow or glow effect"
+      ],
+      "dependencies": ["UI-001"],
+      "pass": false
+    },
+    "UI-003": {
+      "name": "Style content column",
+      "phase": "phase2_content",
+      "agent": "ui-designer",
+      "description": "Style the RIGHT column with title, subtitle, and WhatsApp CTA. Preserve existing Hebrew text. RTL aligned.",
+      "acceptance_criteria": [
+        "Title styled with proper hierarchy",
+        "Subtitle with appropriate contrast",
+        "WhatsApp CTA button prominent",
+        "RTL text alignment",
+        "Vertical centering within column"
+      ],
+      "dependencies": ["UI-001"],
+      "pass": false
+    },
+    "UI-004": {
+      "name": "Add entrance animations",
+      "phase": "phase3_animations",
+      "agent": "ui-designer",
+      "description": "Add Framer Motion entrance animations to illustration and content elements. Stagger text elements.",
+      "acceptance_criteria": [
+        "Illustration has smooth entrance animation",
+        "Title/subtitle stagger in sequentially",
+        "CTA button animates in last",
+        "Durations 0.6-1.2s with easeOut curves",
+        "Animations feel organic, not mechanical"
+      ],
+      "dependencies": ["UI-002", "UI-003"],
+      "pass": false
+    },
+    "UI-005": {
+      "name": "Mobile responsive layout",
+      "phase": "phase4_responsive",
+      "agent": "ui-designer",
+      "description": "Single column on mobile: illustration TOP, content BOTTOM. Proper spacing and sizing for mobile.",
+      "acceptance_criteria": [
+        "Single column layout on mobile (<768px)",
+        "Illustration appears above content",
+        "Proper mobile typography scaling",
+        "Touch-friendly CTA button size",
+        "Smooth transition between breakpoints"
+      ],
+      "dependencies": ["UI-004"],
+      "pass": false
+    },
+    "INT-001": {
+      "name": "Final integration test",
+      "phase": "phase4_responsive",
+      "agent": "direct",
+      "description": "Verify all components work together, no console errors, smooth animations across devices.",
+      "acceptance_criteria": [
+        "No console errors",
+        "Animations work on page load",
+        "Responsive at all breakpoints",
+        "Hebrew text preserved correctly"
+      ],
+      "dependencies": ["UI-005"],
+      "pass": false
+    }
+  }
+}
