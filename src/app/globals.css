@@ -3,12 +3,29 @@
 :root {
   --background: #fafaf8;
   --foreground: #1a1a1a;
+
+  /* Green color palette */
+  --color-primary: #8FBC8F;
+  --color-primary-dark: #5B8A5B;
+  --color-primary-light: #C1E1C1;
+  --color-accent: #D4A574;
+  --color-neutral-50: #fafaf8;
+  --color-neutral-100: #f5f5f3;
+  --color-neutral-200: #e5e5e0;
+  --color-neutral-600: #525252;
+  --color-neutral-800: #262626;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-heebo);
+
+  /* Custom colors for Tailwind classes */
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-accent: var(--color-accent);
 }
 
 body {
