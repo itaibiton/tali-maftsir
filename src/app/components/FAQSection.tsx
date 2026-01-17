@@ -44,7 +44,7 @@ export default function FAQSection() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mb-10 text-center">
+        <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mb-10 text-center">
           שאלות נפוצות
         </h2>
 

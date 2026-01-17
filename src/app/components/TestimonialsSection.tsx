@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
             מה אומרים?
           </h2>
           <p className="text-lg text-[var(--color-neutral-600)]">

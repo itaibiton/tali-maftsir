@@ -48,3 +48,27 @@
 - Added subtle Framer Motion entrance animation (fade + scale)
 - Image properly centered in flex container
 
+### UI-003: Style content column ✅
+**Completed:** 2026-01-16
+
+**Changes made:**
+- Added tagline badge above headline ("טלי מפציר | מטפלת בשיטת סאטיה")
+  - Pill-shaped with primary-light background, accent dot
+- Enhanced headline typography:
+  - Increased size scale (3xl to 6xl responsive)
+  - Split into two lines for impact
+  - Second line ("ולהתחיל לחיות") in primary-dark color
+  - Tighter line-height (1.2) and tracking
+  - Main text in neutral-800 for hierarchy
+- Added decorative accent line between headline and subtitle
+  - Warm tan gradient lines with center dot
+  - ScaleX entrance animation
+- Improved subtitle with `font-light` for contrast
+- Enhanced WhatsApp CTA button:
+  - Gradient background (to-l for RTL)
+  - Custom green-tinted shadows
+  - Framer Motion scale animations on hover/tap
+  - Subtle white overlay glow effect
+- Added trust indicator below CTA ("ללא התחייבות" with checkmark)
+- Added `justify-center` to content column for vertical centering
+

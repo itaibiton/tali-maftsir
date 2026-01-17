@@ -50,7 +50,7 @@
         "Vertical centering within column"
       ],
       "dependencies": ["UI-001"],
-      "pass": false
+      "pass": true
     },
     "UI-004": {
       "name": "Add entrance animations",

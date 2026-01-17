@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { PrimaryCtaLink } from "../../components/PrimaryCtaLink";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,9 +45,11 @@ export default function Header() {
 
   const navLinks = [
     { label: "אודות", href: "#about" },
-    { label: "שירותים", href: "#services" },
+    { label: "ליווי אישי", href: "#coaching" },
+    { label: "דרך ברורה", href: "#clearway" },
+    { label: "לארגונים", href: "#b2b" },
+    { label: "המלצות", href: "#testimonials" },
     { label: "שאלות", href: "#faq" },
-    { label: "צור קשר", href: "#contact" },
   ];
 
   const handleLinkClick = () => {
@@ -55,17 +58,17 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 px-6 md:px-12 lg:px-20 ${
         scrolled || isMenuOpen
           ? "bg-white/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto h-16 md:h-20 flex items-center justify-between">
         {/* Brand name (right side in RTL) */}
         <Link
           href="/"
-          className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors"
+          className="font-display text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors"
         >
           טלי מפציר
         </Link>
@@ -83,6 +86,17 @@ export default function Header() {
             </li>
           ))}
         </ul>
+
+        <div className="hidden md:flex items-center">
+          <PrimaryCtaLink
+            href="https://wa.me/972XXXXXXXXX"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 text-sm md:text-sm"
+          >
+            צור קשר
+          </PrimaryCtaLink>
+        </div>
 
         {/* Mobile hamburger button */}
         <button
@@ -149,6 +163,22 @@ export default function Header() {
                   </a>
                 </motion.li>
               ))}
+              <motion.li
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ delay: navLinks.length * 0.05, duration: 0.2 }}
+                className="px-6 pt-4"
+              >
+                <PrimaryCtaLink
+                  href="https://wa.me/972XXXXXXXXX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 text-sm md:text-sm"
+                >
+                  צור קשר בוואטסאפ
+                </PrimaryCtaLink>
+              </motion.li>
             </ul>
           </motion.div>
         )}

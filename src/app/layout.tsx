@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
-import { Heebo } from "next/font/google";
+import { Playpen_Sans_Hebrew } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 
-const heebo = Heebo({
-  variable: "--font-heebo",
-  subsets: ["hebrew", "latin"],
+// Playpen Sans Hebrew - warm, friendly font for headings with full Hebrew support
+const playpenSans = Playpen_Sans_Hebrew({
+  variable: "--font-display",
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Warm, friendly sans-serif for body text - human, approachable
+const lato = Lato({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -19,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl">
-      <body className={`${heebo.variable} font-sans antialiased`}>
+    <html lang="he" dir="rtl" className={`${playpenSans.variable} ${lato.variable}`}>
+      <body className="font-body antialiased">
         {children}
       </body>
     </html>
