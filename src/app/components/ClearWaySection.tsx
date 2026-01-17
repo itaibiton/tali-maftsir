@@ -30,7 +30,7 @@ export default function ClearWaySection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-[var(--color-primary-dark)] mb-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
             פגישות &ldquo;דרך ברורה&rdquo;
           </h2>
           <p className="text-[var(--color-neutral-600)] text-lg leading-relaxed mb-8">
