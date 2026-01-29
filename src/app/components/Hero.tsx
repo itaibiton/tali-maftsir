@@ -61,7 +61,7 @@ export default function Hero() {
           {/* Headline - impactful but warm */}
           <motion.h1
             className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-[var(--color-neutral-800)] mb-4 leading-[1.2] tracking-tight"
-            style={{ fontFamily: 'var(--font-display), "Assistant", "Rubik", sans-serif' }}
+            style={{ fontFamily: 'var(--font-display), "Heebo", "Assistant", sans-serif' }}
           >
             הזמן להפסיק להסתדר
             <br />

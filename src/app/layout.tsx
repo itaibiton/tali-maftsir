@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Playpen_Sans_Hebrew } from "next/font/google";
-import { Lato } from "next/font/google";
+import { Heebo, Assistant } from "next/font/google";
 import "./globals.css";
 
-// Playpen Sans Hebrew - warm, friendly font for headings with full Hebrew support
-const playpenSans = Playpen_Sans_Hebrew({
+// Heebo - modern, clean Hebrew display font (fresh, sophisticated)
+const heebo = Heebo({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  subsets: ["latin", "hebrew"],
+  weight: ["300", "400", "500", "700", "800"],
   display: "swap",
 });
 
-// Warm, friendly sans-serif for body text - human, approachable
-const lato = Lato({
+// Assistant - clean, friendly body text with excellent Hebrew support
+const assistant = Assistant({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  subsets: ["latin", "hebrew"],
+  weight: ["300", "400", "600", "700"],
   display: "swap",
 });
 
@@ -30,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl" className={`${playpenSans.variable} ${lato.variable}`}>
+    <html lang="he" dir="rtl" className={`${heebo.variable} ${assistant.variable}`}>
       <body className="font-body antialiased">
         {children}
       </body>

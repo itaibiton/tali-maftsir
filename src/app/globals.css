@@ -18,16 +18,17 @@ section[id] {
 
 :root {
 
-  /* Green color palette */
-  --color-primary: #8FBC8F;
-  --color-primary-dark: #5B8A5B;
-  --color-primary-light: #C1E1C1;
-  --color-accent: #D4A574;
-  --color-neutral-50: #fafaf8;
-  --color-neutral-100: #f5f5f3;
-  --color-neutral-200: #e5e5e0;
-  --color-neutral-600: #525252;
-  --color-neutral-800: #262626;
+  /* Green + Coral palette — fresh, sophisticated, popping */
+  --color-primary: #4A7C59;
+  --color-primary-dark: #2D5A3F;
+  --color-primary-light: #D4E8D0;
+  --color-accent: #E8735A;
+  --color-accent-light: #FDEAE6;
+  --color-neutral-50: #FAFBF9;
+  --color-neutral-100: #F4F5F2;
+  --color-neutral-200: #E8E9E5;
+  --color-neutral-600: #4A4A4A;
+  --color-neutral-800: #1A1A1A;
 
   /* Font variables will be injected by Next.js font loader */
 
@@ -107,8 +108,8 @@ section[id] {
   --color-accent: var(--color-accent);
 
   /* Font families */
-  --font-family-display: var(--font-display), "Assistant", "Rubik", "Segoe UI", "Tahoma", sans-serif;
-  --font-family-body: var(--font-body), "Assistant", "Rubik", "Segoe UI", "Tahoma", "Arial", sans-serif;
+  --font-family-display: var(--font-display), "Heebo", "Assistant", "Segoe UI", sans-serif;
+  --font-family-body: var(--font-body), "Assistant", "Heebo", "Segoe UI", "Arial", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -146,27 +147,22 @@ section[id] {
 }
 
 body {
-  font-family: var(--font-body), "Assistant", "Rubik", "Segoe UI", "Tahoma", "Arial", sans-serif;
+  font-family: var(--font-body), "Assistant", "Heebo", "Segoe UI", "Arial", sans-serif;
   text-align: right;
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Display font for headings - Playpen Sans Hebrew, warm and friendly */
+/* Display font for headings - Heebo, modern and clean */
 .font-display {
-  font-family: var(--font-display) !important;
+  font-family: var(--font-display), "Heebo", "Assistant", sans-serif !important;
   font-feature-settings: "kern" 1, "liga" 1;
-}
-
-/* Fallback if variable not available */
-.font-display:not([style*="font-family"]) {
-  font-family: "Assistant", "Rubik", "Segoe UI", "Tahoma", sans-serif;
 }
 
 /* Body font */
 .font-body {
-  font-family: var(--font-body), "Assistant", "Rubik", "Segoe UI", "Tahoma", "Arial", sans-serif;
+  font-family: var(--font-body), "Assistant", "Heebo", "Segoe UI", "Arial", sans-serif;
 }
 
 .dark {
