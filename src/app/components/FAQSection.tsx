@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Blob, ParallaxLeaf, Reveal } from "./decor";
 
 const faqs = [
   {
@@ -33,14 +34,25 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-24 px-6 md:px-12 lg:px-20 bg-[var(--cream)]">
-      <motion.div
-        className="max-w-3xl mx-auto"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.7 }}
-      >
+    <section id="faq" className="relative py-24 px-6 md:px-12 lg:px-20 bg-[var(--cream)] overflow-hidden">
+      <Blob className="-top-20 -right-24 w-80 h-80 bg-[var(--lime-soft)]" />
+      <Blob className="-bottom-24 -left-20 w-72 h-72 bg-[var(--lilac-soft)]" />
+      <ParallaxLeaf
+        className="top-24 left-[10%] hidden md:block"
+        size={42}
+        from="var(--green)"
+        to="var(--mint)"
+        drift={55}
+      />
+      <ParallaxLeaf
+        className="bottom-28 right-[9%] hidden md:block"
+        size={32}
+        from="var(--mint)"
+        to="var(--lime)"
+        drift={40}
+        flip
+      />
+      <Reveal className="max-w-3xl mx-auto relative">
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[var(--green-deep)] mb-12 text-center">
           <span className="marker-lime">שאלות נפוצות</span>
         </h2>
@@ -111,7 +123,7 @@ export default function FAQSection() {
             );
           })}
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

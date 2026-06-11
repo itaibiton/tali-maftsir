@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { WhatsappIcon, LeafIcon } from "@hugeicons/core-free-icons";
 import { PrimaryCtaLink } from "../../components/PrimaryCtaLink";
 import { AnimatedBlob } from "./AnimatedBlob";
+import { ParallaxLeaf, EASE } from "./decor";
 
 const marqueeWords = [
   "הקשבה אמיתית",
@@ -30,6 +31,30 @@ export default function Hero() {
         }}
       />
 
+      {/* parallax leaves drifting around the hero */}
+      <ParallaxLeaf
+        className="top-[20%] left-[3%] hidden md:block"
+        size={62}
+        from="var(--green)"
+        to="var(--mint)"
+        drift={80}
+      />
+      <ParallaxLeaf
+        className="top-[12%] right-[28%] hidden lg:block"
+        size={36}
+        from="var(--mint)"
+        to="var(--lime)"
+        drift={55}
+        flip
+      />
+      <ParallaxLeaf
+        className="bottom-[26%] right-[2%] hidden md:block"
+        size={46}
+        from="var(--lilac)"
+        to="var(--mint)"
+        drift={65}
+      />
+
       <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-28 pb-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
         {/* Content (right in RTL) */}
         <motion.div
@@ -52,9 +77,9 @@ export default function Hero() {
 
           <motion.h1
             className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[var(--green-deep)] mb-7 leading-[1.15]"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
           >
             הזמן להפסיק להסתדר
             <br />
@@ -117,9 +142,9 @@ export default function Hero() {
         {/* Animation in organic blob (left in RTL) */}
         <motion.div
           className="w-full lg:w-[45%] flex items-center justify-center"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.92, filter: "blur(12px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
         >
           <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg">
             {/* offset organic shadow shapes */}

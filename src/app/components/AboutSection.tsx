@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Tooltip } from "@/components/ui/tooltip-card";
+import { Blob, ParallaxLeaf, Reveal } from "./decor";
 
 export default function AboutSection() {
   return (
@@ -10,15 +11,28 @@ export default function AboutSection() {
       id="about"
       className="w-full relative overflow-hidden bg-[var(--cream)] px-6 py-24 md:px-12 lg:px-20"
     >
+      {/* organic background shapes */}
+      <Blob className="-top-28 -left-28 w-96 h-96 bg-[var(--lime-soft)]" />
+      <Blob className="-bottom-24 -right-20 w-80 h-80 bg-[var(--mint-soft)]" />
+      <ParallaxLeaf
+        className="top-16 right-[4%] hidden md:block"
+        size={44}
+        from="var(--green)"
+        to="var(--lime)"
+        drift={60}
+        flip
+      />
+      <ParallaxLeaf
+        className="bottom-20 left-[40%] hidden lg:block"
+        size={34}
+        from="var(--lilac)"
+        to="var(--mint)"
+        drift={45}
+      />
+
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative">
         {/* Portrait in arch frame (left in RTL) */}
-        <motion.div
-          className="order-1 lg:order-2 flex items-center justify-center w-full lg:w-[42%]"
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="order-1 lg:order-2 flex items-center justify-center w-full lg:w-[42%]" delay={0.15} y={40}>
           <div className="relative w-full max-w-sm md:max-w-md">
             {/* offset arch shapes behind the portrait */}
             <div className="absolute inset-0 arch-frame bg-[var(--mint)] translate-x-5 translate-y-5" aria-hidden />
@@ -43,16 +57,10 @@ export default function AboutSection() {
               </svg>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
 
         {/* Text content (right in RTL) */}
-        <motion.div
-          className="order-2 lg:order-1 w-full lg:w-[58%] flex flex-col justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="order-2 lg:order-1 w-full lg:w-[58%] flex flex-col justify-center">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[var(--green-deep)] mb-10">
             <span className="marker-lime">טלי מפציר</span>
           </h2>
@@ -112,7 +120,7 @@ export default function AboutSection() {
               ומאפשר לי להכיל גם את מה שנראה לך קשה או מסובך.
             </motion.p>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

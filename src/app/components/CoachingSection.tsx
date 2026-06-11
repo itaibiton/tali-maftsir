@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { WhatsappIcon } from "@hugeicons/core-free-icons";
 import { PrimaryCtaLink } from "../../components/PrimaryCtaLink";
 import { AnimatedBlob } from "./AnimatedBlob";
+import { Blob, ParallaxLeaf, Reveal } from "./decor";
 
 const feelings = [
   "היחסים שלך עם אנשים קרובים לא עובדים כמו שהיית רוצה",
@@ -20,21 +21,28 @@ export default function CoachingSection() {
       id="coaching"
       className="w-full py-24 bg-[var(--mint-soft)] px-6 md:px-12 lg:px-20 relative overflow-hidden grain"
     >
-      {/* decorative large circle */}
-      <div
-        className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[var(--lime)]/30 pointer-events-none"
-        aria-hidden
+      {/* organic background shapes */}
+      <Blob className="-top-32 -left-32 w-96 h-96 bg-[var(--lime)]/40" />
+      <Blob className="-bottom-28 -right-24 w-80 h-80 bg-white/50" />
+      <ParallaxLeaf
+        className="top-14 right-[5%] hidden md:block"
+        size={56}
+        from="var(--green)"
+        to="var(--lime)"
+        drift={75}
+      />
+      <ParallaxLeaf
+        className="bottom-20 left-[8%] hidden md:block"
+        size={38}
+        from="var(--green-deep)"
+        to="var(--green)"
+        drift={45}
+        flip
       />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative">
         {/* Text content */}
-        <motion.div
-          className="order-2 w-full lg:w-[55%]"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="order-2 w-full lg:w-[55%]">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[var(--green-deep)] mb-6 leading-snug">
             תהליך ליווי אישי <span className="marker-lime">בשיטת סאטיה</span>
           </h2>
@@ -114,16 +122,10 @@ export default function CoachingSection() {
               לשיחת היכרות בוואטסאפ
             </PrimaryCtaLink>
           </motion.div>
-        </motion.div>
+        </Reveal>
 
         {/* Process animation in blob */}
-        <motion.div
-          className="order-1 flex items-center justify-center w-full lg:w-[45%]"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="order-1 flex items-center justify-center w-full lg:w-[45%]" delay={0.15} y={40}>
           <div className="relative w-full max-w-sm md:max-w-md">
             <div className="absolute -inset-2 blob-frame bg-[var(--lilac)]/35 translate-x-4 -translate-y-3" aria-hidden />
             <AnimatedBlob
@@ -134,7 +136,7 @@ export default function CoachingSection() {
               className="relative shadow-lg"
             />
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

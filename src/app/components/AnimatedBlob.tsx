@@ -24,7 +24,7 @@ export function AnimatedBlob({
   const frameClass = blobVariant === 1 ? "blob-frame" : "blob-frame-2";
 
   return (
-    <div className={`relative ${frameClass} ${className}`}>
+    <div className={`relative aspect-square ${frameClass} ${className}`}>
       {videoSrc ? (
         <video
           autoPlay

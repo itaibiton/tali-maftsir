@@ -5,6 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { WhatsappIcon } from "@hugeicons/core-free-icons";
 import { PrimaryCtaLink } from "../../components/PrimaryCtaLink";
 import { AnimatedBlob } from "./AnimatedBlob";
+import { Blob, ParallaxLeaf, Reveal } from "./decor";
 
 const benefits = [
   "תמיכה מקצועית לעובדים בנושאים אישיים ומקצועיים",
@@ -20,7 +21,7 @@ export default function B2BSection() {
       id="b2b"
       className="w-full py-24 bg-[var(--cream)] px-6 md:px-12 lg:px-20 relative overflow-hidden"
     >
-      {/* soft lilac wash */}
+      {/* soft lilac wash + organic shapes */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -29,35 +30,41 @@ export default function B2BSection() {
         }}
         aria-hidden
       />
+      <Blob className="-top-24 -right-28 w-96 h-96 bg-[var(--mint-soft)]" />
+      <Blob className="bottom-10 -left-24 w-72 h-72 bg-[var(--lilac)]/20" />
+      <ParallaxLeaf
+        className="top-20 left-[6%] hidden md:block"
+        size={50}
+        from="var(--lilac)"
+        to="var(--mint)"
+        drift={65}
+      />
+      <ParallaxLeaf
+        className="bottom-24 right-[5%] hidden md:block"
+        size={38}
+        from="var(--green)"
+        to="var(--mint)"
+        drift={50}
+        flip
+      />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative">
         {/* Group illustration in blob */}
-        <motion.div
-          className="flex items-center justify-center w-full lg:w-[45%]"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="flex items-center justify-center w-full lg:w-[45%]" delay={0.15} y={40}>
           <div className="relative w-full max-w-sm md:max-w-md">
             <div className="absolute -inset-2 blob-frame bg-[var(--mint)]/40 translate-x-4 translate-y-3" aria-hidden />
             <AnimatedBlob
+              videoSrc="/images/v2/group.mp4"
               imageSrc="/images/v2/group.jpg"
               alt="אילוסטרציה של קבוצת עובדים בשיחה פתוחה"
               blobVariant={2}
               className="relative shadow-lg"
             />
           </div>
-        </motion.div>
+        </Reveal>
 
         {/* Text content */}
-        <motion.div
-          className="w-full lg:w-[55%]"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="w-full lg:w-[55%]">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[var(--green-deep)] mb-6 leading-snug">
             ליווי <span className="marker-lime marker-lilac">לארגונים</span>
           </h2>
@@ -137,7 +144,7 @@ export default function B2BSection() {
               לפנייה עסקית
             </PrimaryCtaLink>
           </motion.div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

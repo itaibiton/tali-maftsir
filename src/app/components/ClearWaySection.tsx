@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { PrimaryCtaLink } from "../../components/PrimaryCtaLink";
 import { AnimatedBlob } from "./AnimatedBlob";
+import { Blob, ParallaxLeaf, Reveal } from "./decor";
 import {
   Briefcase01Icon,
   BubbleChatAddIcon,
@@ -28,19 +29,29 @@ export default function ClearWaySection() {
       id="clearway"
       className="relative py-24 px-6 md:px-12 lg:px-20 bg-[var(--green-deep)] overflow-hidden grain"
     >
-      {/* decorative shapes on the dark canvas */}
-      <div className="absolute top-12 left-10 w-40 h-40 rounded-full bg-[var(--green)]/25 pointer-events-none" aria-hidden />
-      <div className="absolute -bottom-20 right-16 w-72 h-72 rounded-full bg-[var(--lime)]/10 pointer-events-none" aria-hidden />
+      {/* organic shapes on the dark canvas */}
+      <Blob className="top-10 left-8 w-44 h-44 bg-[var(--green)]/30" />
+      <Blob className="-bottom-24 right-14 w-80 h-80 bg-[var(--lime)]/15" />
+      <Blob className="top-1/3 -right-20 w-56 h-56 bg-[var(--mint)]/15" />
+      <ParallaxLeaf
+        className="top-16 right-[7%] hidden md:block"
+        size={48}
+        from="var(--lime)"
+        to="var(--mint)"
+        drift={65}
+      />
+      <ParallaxLeaf
+        className="bottom-16 left-[5%] hidden md:block"
+        size={36}
+        from="var(--mint)"
+        to="var(--lime)"
+        drift={45}
+        flip
+      />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative">
         {/* Text column */}
-        <motion.div
-          className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-right"
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-right">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-snug">
             פגישות{" "}
             <span className="text-[var(--lime)]">&ldquo;דרך ברורה&rdquo;</span>
@@ -103,16 +114,10 @@ export default function ClearWaySection() {
               לקביעת פגישה
             </PrimaryCtaLink>
           </div>
-        </motion.div>
+        </Reveal>
 
         {/* Conversation animation in blob */}
-        <motion.div
-          className="w-full lg:w-[45%] flex items-center justify-center lg:justify-end"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="w-full lg:w-[45%] flex items-center justify-center lg:justify-end" delay={0.15} y={40}>
           <div className="relative w-full max-w-sm md:max-w-md">
             <div className="absolute -inset-2 blob-frame-2 bg-[var(--lime)]/25 -translate-x-4 translate-y-4" aria-hidden />
             <AnimatedBlob
@@ -122,7 +127,7 @@ export default function ClearWaySection() {
               className="relative shadow-2xl"
             />
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

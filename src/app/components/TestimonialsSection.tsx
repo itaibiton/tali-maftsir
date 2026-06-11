@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Blob, ParallaxLeaf, Reveal, EASE } from "./decor";
 
 interface Testimonial {
   quote: string;
   author: string;
   service: string;
   tint: string;
-  rotation: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -16,16 +16,14 @@ const testimonials: Testimonial[] = [
       "התהליך עם טלי עזר לי לראות דברים שהייתי עיוורת אליהם במשך שנים. היום אני מרגישה יותר שלמה, יותר בטוחה בעצמי, ויודעת מה אני באמת רוצה.",
     author: "מיכל",
     service: "ליווי אישי",
-    tint: "var(--lime-soft)",
-    rotation: "-1.2deg",
+    tint: "var(--mint-soft)",
   },
   {
     quote:
       "הגעתי לפגישה לפני ראיון עבודה חשוב ויצאתי עם בהירות מלאה. קיבלתי את המשרה, ואני בטוח שזה בזכות ההכנה הממוקדת.",
     author: "יואב",
     service: "דרך ברורה",
-    tint: "var(--mint-soft)",
-    rotation: "1.4deg",
+    tint: "var(--lime-soft)",
   },
   {
     quote:
@@ -33,9 +31,51 @@ const testimonials: Testimonial[] = [
     author: "רונית",
     service: "ליווי אישי",
     tint: "var(--lilac-soft)",
-    rotation: "-0.8deg",
+  },
+  {
+    quote:
+      "טלי נתנה לי כלים פשוטים שאני משתמשת בהם כל יום — בבית, בעבודה, מול עצמי. השעה הזאת בשבוע היא משהו שאני כבר לא מוותרת עליו.",
+    author: "נועה",
+    service: "ליווי אישי",
+    tint: "var(--lime-soft)",
+  },
+  {
+    quote:
+      "הייתי סקפטית לגבי טיפול בזום — והופתעתי. החיבור היה מיידי, והתהליך שינה את הדרך שבה אני מתקשרת עם האנשים הקרובים אליי.",
+    author: "דנה",
+    service: "ליווי אישי",
+    tint: "var(--lilac-soft)",
+  },
+  {
+    quote:
+      "פגישה אחת לפני שיחה קשה עם אבא שלי. הגעתי רגוע וברור, והשיחה עברה אחרת לגמרי ממה שדמיינתי.",
+    author: "אמיר",
+    service: "דרך ברורה",
+    tint: "var(--mint-soft)",
   },
 ];
+
+function Stars() {
+  return (
+    <div className="flex gap-1 mb-4" role="img" aria-label="דירוג חמישה כוכבים">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="var(--lime)"
+          stroke="var(--green)"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+          aria-hidden
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
 
 export default function TestimonialsSection() {
   return (
@@ -43,55 +83,67 @@ export default function TestimonialsSection() {
       id="testimonials"
       className="relative py-24 px-6 md:px-12 lg:px-20 bg-[var(--cream-deep)] overflow-hidden grain"
     >
+      {/* organic background shapes */}
+      <Blob className="-top-24 -right-28 w-96 h-96 bg-[var(--mint)]/25" />
+      <Blob className="-bottom-32 -left-24 w-[26rem] h-[26rem] bg-[var(--lilac)]/20" />
+      <ParallaxLeaf
+        className="top-16 left-[6%] hidden md:block"
+        size={52}
+        from="var(--green)"
+        to="var(--mint)"
+        drift={70}
+      />
+      <ParallaxLeaf
+        className="bottom-24 right-[4%] hidden md:block"
+        size={40}
+        from="var(--lilac)"
+        to="var(--mint)"
+        drift={45}
+        flip
+      />
+
       <div className="max-w-6xl mx-auto relative">
-        <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
-        >
+        <Reveal className="text-center mb-14">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[var(--green-deep)] mb-4">
             <span className="marker-lime">מה אומרים?</span>
           </h2>
           <p className="text-lg text-[var(--color-neutral-600)]">
             מילים מאנשים שעברו את הדרך
           </p>
-        </motion.div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <motion.figure
               key={index}
-              className="relative rounded-3xl p-7 shadow-[0_2px_0_0_rgba(29,77,49,0.12)] border border-[var(--green-deep)]/8 transition-transform duration-300 hover:-translate-y-1.5 hover:rotate-0"
-              style={{ backgroundColor: testimonial.tint, rotate: testimonial.rotation }}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="group relative flex flex-col bg-white rounded-3xl p-7 border border-[var(--green-deep)]/8 shadow-[0_1px_2px_rgba(22,41,28,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-18px_rgba(29,77,49,0.35)]"
+              initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.12 * index }}
+              transition={{ duration: 0.7, delay: 0.08 * index, ease: EASE }}
             >
-              <div className="mb-4">
-                <svg
-                  className="w-9 h-9 text-[var(--green)]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-              <p className="text-[var(--color-neutral-600)] text-base leading-relaxed mb-6">
+              <Stars />
+              <blockquote className="text-[var(--color-neutral-600)] text-base leading-relaxed mb-6 flex-1">
                 {testimonial.quote}
-              </p>
-              <div className="flex items-center justify-between border-t border-[var(--green-deep)]/10 pt-4">
-                <span className="font-display text-[var(--green-deep)]">
-                  {testimonial.author}
+              </blockquote>
+              <figcaption className="flex items-center gap-3 border-t border-[var(--green-deep)]/10 pt-5">
+                <span
+                  className="w-11 h-11 rounded-full flex items-center justify-center font-display text-lg text-[var(--green-deep)] transition-transform duration-300 group-hover:scale-110"
+                  style={{ backgroundColor: testimonial.tint }}
+                  aria-hidden
+                >
+                  {testimonial.author[0]}
                 </span>
-                <span className="text-sm font-semibold text-[var(--green-deep)]/60 bg-white/60 px-3 py-1 rounded-full">
-                  {testimonial.service}
+                <span className="flex flex-col">
+                  <span className="font-bold text-[var(--green-deep)]">
+                    {testimonial.author}
+                  </span>
+                  <span className="text-sm text-[var(--color-neutral-600)]/75">
+                    {testimonial.service}
+                  </span>
                 </span>
-              </div>
-            </motion.div>
+              </figcaption>
+            </motion.figure>
           ))}
         </div>
       </div>

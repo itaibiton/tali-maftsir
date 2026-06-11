@@ -164,6 +164,31 @@ body {
   }
 }
 
+/* ===== morphing decorative blob ===== */
+@keyframes blob-morph {
+  0%,
+  100% {
+    border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;
+  }
+  33% {
+    border-radius: 45% 55% 48% 52% / 58% 44% 56% 42%;
+  }
+  66% {
+    border-radius: 52% 48% 60% 40% / 44% 58% 42% 56%;
+  }
+}
+
+.blob-shape {
+  border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;
+  animation: blob-morph 16s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob-shape {
+    animation: none;
+  }
+}
+
 /* ===== floating leaf accents ===== */
 @keyframes float-soft {
   0%,
