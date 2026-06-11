@@ -52,38 +52,60 @@ function HoverLeaf({
   const x = useTransform(mx, (v) => v * cfg.depth);
   const y = useTransform(my, (v) => v * cfg.depth);
 
+  const sway = cfg.flip ? -26 : 26;
+
   return (
     <motion.div
       style={{ x, y }}
       className={`absolute pointer-events-none ${cfg.layer === "front" ? "z-10" : "-z-10"} ${cfg.className}`}
-      initial={false}
-      animate={
-        revealed
-          ? { opacity: 1, scale: 1, rotate: cfg.rotate }
-          : { opacity: 0, scale: 0.2, rotate: cfg.rotate - 50 }
-      }
-      transition={{
-        type: "spring",
-        stiffness: 230,
-        damping: 16,
-        delay: revealed ? cfg.delay : 0,
-      }}
       aria-hidden
     >
-      {/* each leaf floats on its own rhythm, independent of spring + parallax */}
+      {/* wind-blown entrance: rises from below with a spin and S-curve sway */}
       <motion.div
-        animate={{
-          y: [0, -cfg.floatAmp, 0],
-          rotate: [0, cfg.wobble, 0],
-        }}
-        transition={{
-          duration: cfg.floatDur,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: cfg.delay * 2,
-        }}
+        initial={false}
+        animate={
+          revealed
+            ? {
+                opacity: [0, 1, 1, 1],
+                y: [90, 20, -12, 0],
+                x: [sway, -sway * 0.5, sway * 0.2, 0],
+                scale: [0.3, 0.9, 1.06, 1],
+                rotate: [cfg.rotate - 280, cfg.rotate - 60, cfg.rotate + 14, cfg.rotate],
+              }
+            : {
+                opacity: 0,
+                y: 90,
+                x: sway,
+                scale: 0.3,
+                rotate: cfg.rotate - 280,
+              }
+        }
+        transition={
+          revealed
+            ? {
+                duration: 1.1,
+                delay: cfg.delay,
+                ease: "easeOut",
+                times: [0, 0.45, 0.75, 1],
+              }
+            : { duration: 0.4, ease: "easeIn" }
+        }
       >
-        <LeafSvg size={cfg.size} from={cfg.from} to={cfg.to} flip={cfg.flip} />
+        {/* each leaf floats on its own rhythm, independent of entrance + parallax */}
+        <motion.div
+          animate={{
+            y: [0, -cfg.floatAmp, 0],
+            rotate: [0, cfg.wobble, 0],
+          }}
+          transition={{
+            duration: cfg.floatDur,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: cfg.delay * 2,
+          }}
+        >
+          <LeafSvg size={cfg.size} from={cfg.from} to={cfg.to} flip={cfg.flip} />
+        </motion.div>
       </motion.div>
     </motion.div>
   );
