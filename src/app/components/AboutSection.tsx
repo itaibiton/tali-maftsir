@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Tooltip } from "@/components/ui/tooltip-card";
+import { PortraitReveal } from "./PortraitReveal";
 import { Blob, ParallaxLeaf, Reveal } from "./decor";
 
 export default function AboutSection() {
@@ -34,21 +34,17 @@ export default function AboutSection() {
         {/* Portrait in arch frame (left in RTL) */}
         <Reveal className="order-1 lg:order-2 flex items-center justify-center w-full lg:w-[42%]" delay={0.15} y={40}>
           <div className="relative w-full max-w-sm md:max-w-md">
-            {/* offset arch shapes behind the portrait */}
-            <div className="absolute inset-0 arch-frame bg-[var(--mint)] translate-x-5 translate-y-5" aria-hidden />
-            <div className="absolute inset-0 arch-frame bg-[var(--lilac)]/45 -translate-x-3 translate-y-2" aria-hidden />
+            {/* offset blob shapes behind the portrait — matches other sections */}
+            <div className="absolute -inset-2 blob-frame-2 bg-[var(--mint)]/40 translate-x-4 translate-y-4" aria-hidden />
+            <div className="absolute -inset-1 blob-frame bg-[var(--lilac)]/35 -translate-x-3 translate-y-2" aria-hidden />
 
-            <div className="relative arch-frame bg-[var(--lime-soft)]">
-              <Image
-                src="/images/tali-portrait-1.jpg"
-                alt="טלי מפציר"
-                width={900}
-                height={1100}
-                quality={95}
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-              />
-            </div>
+            <PortraitReveal
+              photoSrc="/images/tali-portrait-1.jpg"
+              illustrationSrc="/images/v2/tali-illustrated.jpg"
+              videoSrc="/images/v2/tali-illustrated.mp4"
+              alt="טלי מפציר"
+              className="relative shadow-xl"
+            />
 
             {/* leaf accent */}
             <div className="absolute -top-7 -left-4 float-soft" aria-hidden>

@@ -65,7 +65,7 @@ section[id] {
   --color-cream: var(--cream);
   --color-cream-deep: var(--cream-deep);
 
-  --font-family-display: var(--font-display), "Suez One", "Heebo", serif;
+  --font-family-display: var(--font-display), "Rubik", "Heebo", sans-serif;
   --font-family-body: var(--font-body), "Assistant", "Heebo", sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -88,8 +88,9 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-display), "Suez One", "Heebo", serif !important;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display), "Rubik", "Heebo", sans-serif !important;
+  font-weight: 800;
+  letter-spacing: -0.015em;
 }
 
 .font-body {
