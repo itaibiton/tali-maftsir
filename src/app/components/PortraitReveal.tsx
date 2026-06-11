@@ -220,17 +220,20 @@ export function PortraitReveal({
           )}
         </div>
 
-        {/* hover hint — bare hand icon */}
-        <span
-          className={`absolute bottom-5 right-1/2 translate-x-1/2 text-white transition-opacity duration-500 pointer-events-none ${
-            revealed ? "opacity-0" : "opacity-100"
-          }`}
-          style={{ filter: "drop-shadow(0 2px 6px rgba(22, 41, 28, 0.45))" }}
-          aria-hidden
-        >
-          <Pointer size={26} className="animate-pulse" />
-        </span>
       </div>
+
+      {/* hover hint — hand outside the blob, nudging toward it */}
+      <motion.span
+        className={`absolute -bottom-9 -right-1 text-[var(--green-deep)] transition-opacity duration-500 pointer-events-none ${
+          revealed ? "opacity-0" : "opacity-100"
+        }`}
+        style={{ filter: "drop-shadow(0 2px 5px rgba(22, 41, 28, 0.3))" }}
+        animate={{ x: [0, -7, 0], y: [0, -7, 0] }}
+        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        aria-hidden
+      >
+        <Pointer size={28} style={{ transform: "rotate(-35deg)" }} />
+      </motion.span>
     </div>
   );
 }
