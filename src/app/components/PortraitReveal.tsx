@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform, type MotionValue } from "framer-motion";
-import { MousePointer2 } from "lucide-react";
+import { Pointer } from "lucide-react";
 import { LeafSvg } from "./decor";
 
 type PortraitRevealProps = {
@@ -24,15 +24,18 @@ type LeafConfig = {
   depth: number; // px of mouse-parallax drift — bigger feels closer
   flip?: boolean;
   layer: "front" | "back";
+  floatDur: number; // seconds per float cycle — unique per leaf
+  floatAmp: number; // px of vertical bob
+  wobble: number; // degrees of sway during the float
 };
 
 const LEAVES: LeafConfig[] = [
-  { className: "-top-8 -right-6", size: 72, from: "var(--green)", to: "var(--lime)", rotate: 18, delay: 0, depth: 26, layer: "front" },
-  { className: "-bottom-6 -left-8", size: 62, from: "var(--green-deep)", to: "var(--green)", rotate: -160, delay: 0.06, depth: 22, flip: true, layer: "front" },
-  { className: "top-1/4 -left-10", size: 44, from: "var(--mint)", to: "var(--lime)", rotate: -40, delay: 0.12, depth: 30, layer: "front" },
-  { className: "-top-10 left-10", size: 56, from: "var(--mint)", to: "var(--mint-soft)", rotate: -15, delay: 0.05, depth: 12, layer: "back" },
-  { className: "bottom-1/4 -right-10", size: 50, from: "var(--lilac)", to: "var(--mint)", rotate: 140, delay: 0.1, depth: 14, flip: true, layer: "back" },
-  { className: "-bottom-9 right-1/4", size: 40, from: "var(--green)", to: "var(--mint)", rotate: -200, delay: 0.15, depth: 10, layer: "back" },
+  { className: "-top-8 -right-6", size: 72, from: "var(--green)", to: "var(--lime)", rotate: 18, delay: 0, depth: 26, layer: "front", floatDur: 3.2, floatAmp: 10, wobble: 6 },
+  { className: "-bottom-6 -left-8", size: 62, from: "var(--green-deep)", to: "var(--green)", rotate: -160, delay: 0.06, depth: 22, flip: true, layer: "front", floatDur: 4.1, floatAmp: 8, wobble: -5 },
+  { className: "top-1/4 -left-10", size: 44, from: "var(--mint)", to: "var(--lime)", rotate: -40, delay: 0.12, depth: 30, layer: "front", floatDur: 2.7, floatAmp: 12, wobble: 8 },
+  { className: "-top-10 left-10", size: 56, from: "var(--mint)", to: "var(--mint-soft)", rotate: -15, delay: 0.05, depth: 12, layer: "back", floatDur: 4.8, floatAmp: 7, wobble: -4 },
+  { className: "bottom-1/4 -right-10", size: 50, from: "var(--lilac)", to: "var(--mint)", rotate: 140, delay: 0.1, depth: 14, flip: true, layer: "back", floatDur: 3.6, floatAmp: 9, wobble: 5 },
+  { className: "-bottom-9 right-1/4", size: 40, from: "var(--green)", to: "var(--mint)", rotate: -200, delay: 0.15, depth: 10, layer: "back", floatDur: 4.4, floatAmp: 6, wobble: -7 },
 ];
 
 function HoverLeaf({
@@ -67,7 +70,21 @@ function HoverLeaf({
       }}
       aria-hidden
     >
-      <LeafSvg size={cfg.size} from={cfg.from} to={cfg.to} flip={cfg.flip} />
+      {/* each leaf floats on its own rhythm, independent of spring + parallax */}
+      <motion.div
+        animate={{
+          y: [0, -cfg.floatAmp, 0],
+          rotate: [0, cfg.wobble, 0],
+        }}
+        transition={{
+          duration: cfg.floatDur,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: cfg.delay * 2,
+        }}
+      >
+        <LeafSvg size={cfg.size} from={cfg.from} to={cfg.to} flip={cfg.flip} />
+      </motion.div>
     </motion.div>
   );
 }
@@ -132,7 +149,7 @@ export function PortraitReveal({
 
       <div
         ref={ref}
-        className="relative aspect-square blob-frame isolate cursor-pointer"
+        className="relative aspect-square blob-frame isolate cursor-pointer shadow-xl"
       >
         {/* base layer — the real Tali (own blob clip so corners survive the scale transform) */}
         <div className="absolute inset-0 blob-frame">
@@ -181,14 +198,15 @@ export function PortraitReveal({
           )}
         </div>
 
-        {/* hover hint — icon only */}
+        {/* hover hint — bare hand icon */}
         <span
-          className={`absolute bottom-5 right-1/2 translate-x-1/2 w-10 h-10 rounded-full bg-white/85 backdrop-blur-sm shadow-md flex items-center justify-center text-[var(--green-deep)] transition-opacity duration-500 pointer-events-none ${
+          className={`absolute bottom-5 right-1/2 translate-x-1/2 text-white transition-opacity duration-500 pointer-events-none ${
             revealed ? "opacity-0" : "opacity-100"
           }`}
+          style={{ filter: "drop-shadow(0 2px 6px rgba(22, 41, 28, 0.45))" }}
           aria-hidden
         >
-          <MousePointer2 size={18} className="animate-pulse" />
+          <Pointer size={26} className="animate-pulse" />
         </span>
       </div>
     </div>

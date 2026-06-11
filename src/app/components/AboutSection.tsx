@@ -43,7 +43,7 @@ export default function AboutSection() {
               illustrationSrc="/images/v2/tali-illustrated.jpg"
               videoSrc="/images/v2/tali-illustrated.mp4"
               alt="טלי מפציר"
-              className="relative shadow-xl"
+              className="relative"
             />
 
             {/* leaf accent */}
