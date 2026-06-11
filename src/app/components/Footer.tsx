@@ -5,23 +5,36 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <motion.footer
-      className="py-20 px-6 md:px-12 lg:px-20 bg-[var(--color-primary-dark)]"
+      className="relative py-20 px-6 md:px-12 lg:px-20 bg-[var(--green-deep)] overflow-hidden grain"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-3xl mx-auto text-center">
+      {/* decorative leaf */}
+      <div className="absolute -top-6 left-12 opacity-20 rotate-12" aria-hidden>
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="var(--lime)">
+          <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+        </svg>
+      </div>
+
+      <div className="max-w-3xl mx-auto text-center relative">
+        <p className="font-display text-2xl md:text-3xl text-white mb-8">
+          טלי מפציר
+          <span className="text-[var(--lime)]"> · </span>
+          <span className="text-[var(--mint)]">ליווי אישי בשיטת סאטיה</span>
+        </p>
+
         <a
           href="https://www.facebook.com/tali.maftsir/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-white hover:text-[var(--color-neutral-100)] transition-colors mb-6"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/15 text-white hover:bg-white/20 hover:border-[var(--lime)]/50 transition-colors mb-8"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="22"
+            height="22"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
@@ -30,9 +43,7 @@ export default function Footer() {
           <span className="text-lg">עקבו אחריי בפייסבוק</span>
         </a>
 
-        <p className="text-white/80 text-sm">
-          © 2025 טלי מפציר
-        </p>
+        <p className="text-white/70 text-sm">© 2025 טלי מפציר</p>
       </div>
     </motion.footer>
   );

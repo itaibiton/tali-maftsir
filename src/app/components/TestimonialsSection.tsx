@@ -6,6 +6,8 @@ interface Testimonial {
   quote: string;
   author: string;
   service: string;
+  tint: string;
+  rotation: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -14,18 +16,24 @@ const testimonials: Testimonial[] = [
       "התהליך עם טלי עזר לי לראות דברים שהייתי עיוורת אליהם במשך שנים. היום אני מרגישה יותר שלמה, יותר בטוחה בעצמי, ויודעת מה אני באמת רוצה.",
     author: "מיכל",
     service: "ליווי אישי",
+    tint: "var(--lime-soft)",
+    rotation: "-1.2deg",
   },
   {
     quote:
       "הגעתי לפגישה לפני ראיון עבודה חשוב ויצאתי עם בהירות מלאה. קיבלתי את המשרה, ואני בטוח שזה בזכות ההכנה הממוקדת.",
     author: "יואב",
     service: "דרך ברורה",
+    tint: "var(--mint-soft)",
+    rotation: "1.4deg",
   },
   {
     quote:
       "אחרי שנים של תקיעות, סוף סוף הצלחתי לעשות צעד קדימה. טלי יודעת לשאול את השאלות הנכונות ולהחזיק מרחב בטוח.",
     author: "רונית",
     service: "ליווי אישי",
+    tint: "var(--lilac-soft)",
+    rotation: "-0.8deg",
   },
 ];
 
@@ -33,37 +41,38 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-20 px-6 md:px-12 lg:px-20 bg-[var(--color-neutral-100)]"
+      className="relative py-24 px-6 md:px-12 lg:px-20 bg-[var(--cream-deep)] overflow-hidden grain"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto relative">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
-            מה אומרים?
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[var(--green-deep)] mb-4">
+            <span className="marker-lime">מה אומרים?</span>
           </h2>
           <p className="text-lg text-[var(--color-neutral-600)]">
             מילים מאנשים שעברו את הדרך
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl p-6 shadow-sm"
-              initial={{ opacity: 0, y: 20 }}
+              className="relative rounded-3xl p-7 shadow-[0_2px_0_0_rgba(29,77,49,0.12)] border border-[var(--green-deep)]/8 transition-transform duration-300 hover:-translate-y-1.5 hover:rotate-0"
+              style={{ backgroundColor: testimonial.tint, rotate: testimonial.rotation }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
+              transition={{ duration: 0.6, delay: 0.12 * index }}
             >
               <div className="mb-4">
                 <svg
-                  className="w-8 h-8 text-[var(--color-primary-light)]"
+                  className="w-9 h-9 text-[var(--green)]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -74,11 +83,11 @@ export default function TestimonialsSection() {
               <p className="text-[var(--color-neutral-600)] text-base leading-relaxed mb-6">
                 {testimonial.quote}
               </p>
-              <div className="flex items-center justify-between border-t border-[var(--color-neutral-200)] pt-4">
-                <span className="font-semibold text-[var(--color-primary-dark)]">
+              <div className="flex items-center justify-between border-t border-[var(--green-deep)]/10 pt-4">
+                <span className="font-display text-[var(--green-deep)]">
                   {testimonial.author}
                 </span>
-                <span className="text-sm text-[var(--color-neutral-500)]">
+                <span className="text-sm font-semibold text-[var(--green-deep)]/60 bg-white/60 px-3 py-1 rounded-full">
                   {testimonial.service}
                 </span>
               </div>

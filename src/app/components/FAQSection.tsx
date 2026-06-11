@@ -33,10 +33,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section
-      id="faq"
-      className="py-20 px-6 md:px-12 lg:px-20 bg-white"
-    >
+    <section id="faq" className="py-24 px-6 md:px-12 lg:px-20 bg-[var(--cream)]">
       <motion.div
         className="max-w-3xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
@@ -44,62 +41,75 @@ export default function FAQSection() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mb-10 text-center">
-          שאלות נפוצות
+        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-[var(--green-deep)] mb-12 text-center">
+          <span className="marker-lime">שאלות נפוצות</span>
         </h2>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              className="border border-[var(--color-neutral-200)] rounded-lg overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-5 text-right bg-[var(--color-neutral-50)] hover:bg-[var(--color-neutral-100)] transition-colors"
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={index}
+                className={`rounded-2xl overflow-hidden border-2 transition-colors duration-300 ${
+                  isOpen
+                    ? "border-[var(--green)]/50 bg-white shadow-md"
+                    : "border-[var(--border)] bg-white/70"
+                }`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <span className="text-lg font-medium text-[var(--color-primary-dark)]">
-                  {faq.question}
-                </span>
-                <motion.svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[var(--color-primary-dark)] flex-shrink-0 mr-4"
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex items-center justify-between p-5 text-right hover:bg-[var(--lime-soft)]/50 transition-colors"
                 >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </motion.svg>
-              </button>
-
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+                  <span className="text-lg font-bold text-[var(--green-deep)]">
+                    {faq.question}
+                  </span>
+                  <motion.span
+                    className={`flex-shrink-0 mr-4 w-9 h-9 rounded-full flex items-center justify-center transition-colors ${
+                      isOpen ? "bg-[var(--lime)]" : "bg-[var(--mint-soft)]"
+                    }`}
+                    animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
                   >
-                    <p className="p-5 text-[var(--color-neutral-600)] leading-relaxed bg-white">
-                      {faq.answer}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-[var(--green-deep)]"
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </motion.span>
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-5 pb-5 text-[var(--color-neutral-600)] leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </section>

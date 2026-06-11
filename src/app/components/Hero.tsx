@@ -1,100 +1,91 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { WhatsappIcon, LeafIcon } from "@hugeicons/core-free-icons";
 import { PrimaryCtaLink } from "../../components/PrimaryCtaLink";
+import { AnimatedBlob } from "./AnimatedBlob";
+
+const marqueeWords = [
+  "הקשבה אמיתית",
+  "צמיחה אישית",
+  "ריפוי דפוסים",
+  "תקשורת",
+  "חיבור אמיתי",
+  "דרך ברורה",
+];
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center px-6 py-20 md:px-12 lg:px-20 overflow-hidden bg-[#fefcfe]">
-      {/* Two-column flex: illustration (left) | content (right) */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between ">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[var(--cream)] grain">
+      {/* soft color washes */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(55% 45% at 18% 22%, var(--lime-soft) 0%, transparent 70%),
+            radial-gradient(50% 50% at 85% 75%, var(--mint-soft) 0%, transparent 70%),
+            radial-gradient(30% 30% at 70% 15%, var(--lilac-soft) 0%, transparent 75%)
+          `,
+        }}
+      />
 
-        {/* LEFT column - Hero illustration (appears LEFT on desktop RTL) */}
+      <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-28 pb-12 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+        {/* Content (right in RTL) */}
         <motion.div
-          className="order-1 lg:order-2 flex items-center justify-center lg:justify-end w-full lg:w-1/2"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          <div className="relative w-full max-w-xs md:max-w-sm lg:max-w-md">
-            <Image
-              src="/images/animation-left.gif"
-              alt="Animated illustration representing personal growth"
-              width={800}
-              height={800}
-              quality={100}
-              className="w-full h-auto object-contain"
-              priority
-              unoptimized
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
-            />
-            {/* Fade mask to blend with background */}
-            <div className="absolute inset-0 pointer-events-none" style={{
-              background: `
-                linear-gradient(to bottom, #fefcfe 0%, transparent 25%, transparent 75%, #fefcfe 100%),
-                radial-gradient(ellipse at center, transparent 50%, #fefcfe 100%)
-              `
-            }} />
-          </div>
-        </motion.div>
-
-        {/* RIGHT column - Content (appears RIGHT on desktop RTL) */}
-        <motion.div className="order-2 lg:order-1 flex flex-col justify-center w-full lg:w-1/2"
-          initial={{ opacity: 0, y: 20 }}
+          className="w-full lg:w-[55%] flex flex-col justify-center"
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
         >
-
-          {/* Tagline badge - subtle intro element */}
           <motion.div
-            className="mb-6"
+            className="mb-7"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 text-sm md:text-base font-medium text-[var(--color-primary-dark)] bg-[var(--color-primary-light)]/40 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
+            <span className="inline-flex items-center gap-2.5 px-5 py-2.5 text-sm md:text-base font-semibold text-[var(--green-deep)] bg-white/70 backdrop-blur-sm border border-[var(--mint)]/50 rounded-full shadow-sm">
+              <span className="w-2.5 h-2.5 rounded-full bg-[var(--green)] animate-pulse" />
               טלי מפציר | מטפלת בשיטת סאטיה
             </span>
           </motion.div>
 
-          {/* Headline - impactful but warm */}
           <motion.h1
-            className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-[var(--color-neutral-800)] mb-4 leading-[1.2] tracking-tight"
-            style={{ fontFamily: 'var(--font-display), "Heebo", "Assistant", sans-serif' }}
+            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[var(--green-deep)] mb-7 leading-[1.15]"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
           >
             הזמן להפסיק להסתדר
             <br />
-            <span className="text-[var(--color-primary-dark)]">ולהתחיל לחיות</span>
+            <span className="marker-lime">ולהתחיל לחיות</span>
           </motion.h1>
 
-
-          {/* Subheadline - clear secondary hierarchy */}
           <motion.p
-            className="text-base md:text-lg lg:text-xl text-[var(--color-neutral-600)] mb-10 max-w-2xl leading-relaxed font-light"
+            className="text-base md:text-lg lg:text-xl text-[var(--color-neutral-600)] mb-10 max-w-2xl leading-relaxed"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
           >
             כאן תמצאו מקום בטוח לעבודה עמוקה על החיים שלכם — על היחסים, על התקשורת, ועל הדרך שבה אתם מתמודדים עם אתגרים. אני טלי מפציר, מלווה אישית בשיטת סאטיה, ואני כאן כדי ללוות אתכם בתהליך של צמיחה אישית, ריפוי דפוסים מהעבר, ובניית דרכי התמודדות חדשות. יחד נגלה מה עוצר אתכם, נבנה כלים מעשיים, וניצור שינוי אמיתי ומתמשך בחיים שלכם.
           </motion.p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-4">
-            {/* WhatsApp CTA Button - prominent and inviting */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 mb-4"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+          >
             <PrimaryCtaLink
               href="https://wa.me/972XXXXXXXXX"
               target="_blank"
               rel="noopener noreferrer"
-              icon={
-                <HugeiconsIcon
-                  icon={WhatsappIcon}
-                  size={24}
-                  className="relative z-10"
-                />
-              }
+              variant="lime"
+              icon={<HugeiconsIcon icon={WhatsappIcon} size={24} className="relative z-10" />}
             >
               לשיחת היכרות בוואטסאפ
             </PrimaryCtaLink>
 
-            {/* Learn About Method CTA Button */}
             <PrimaryCtaLink
               href="#coaching"
               variant="secondary"
@@ -102,24 +93,80 @@ export default function Hero() {
                 <HugeiconsIcon
                   icon={LeafIcon}
                   size={20}
-                  className="transition-transform group-hover:scale-110 group-hover:rotate-3"
+                  className="transition-transform group-hover:scale-110 group-hover:rotate-6"
                 />
               }
             >
               שיטת הסאטיה
             </PrimaryCtaLink>
-          </div>
+          </motion.div>
 
-          {/* Trust indicator below CTA */}
           <motion.p
-            className="mt-4 text-sm text-[var(--color-neutral-600)]/70 flex items-center gap-2"
+            className="mt-4 text-sm text-[var(--color-neutral-600)]/80 flex items-center gap-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-[var(--green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             ללא התחייבות
           </motion.p>
         </motion.div>
+
+        {/* Animation in organic blob (left in RTL) */}
+        <motion.div
+          className="w-full lg:w-[45%] flex items-center justify-center"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
+          <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg">
+            {/* offset organic shadow shapes */}
+            <div className="absolute -inset-3 blob-frame-2 bg-[var(--mint)]/40 translate-x-4 translate-y-4" />
+            <div className="absolute -inset-1 blob-frame bg-[var(--lime)]/50 -translate-x-3 translate-y-2" />
+
+            <AnimatedBlob
+              videoSrc="/images/v2/hero.mp4"
+              imageSrc="/images/v2/hero.jpg"
+              alt="אילוסטרציה של אישה צועדת בין עלים — התחלה חדשה"
+              className="relative shadow-xl"
+            />
+
+            {/* floating accents */}
+            <div className="absolute -top-6 -right-2 float-soft" aria-hidden>
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="var(--green)">
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+              </svg>
+            </div>
+            <div className="absolute -bottom-4 -left-2 float-soft-delayed" aria-hidden>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="var(--lilac)">
+                <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
+              </svg>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* marquee strip */}
+      <div className="relative w-full border-y-2 border-[var(--green-deep)]/10 bg-white/50 backdrop-blur-sm py-3.5 overflow-hidden" dir="ltr">
+        <div className="marquee-track flex w-max gap-0">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
+              {marqueeWords.map((word) => (
+                <span
+                  key={`${copy}-${word}`}
+                  className="flex items-center gap-6 px-6 text-lg font-semibold text-[var(--green-deep)]/80 whitespace-nowrap"
+                >
+                  {word}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--green)" aria-hidden>
+                    <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" />
+                  </svg>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

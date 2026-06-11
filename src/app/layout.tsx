@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Heebo, Assistant } from "next/font/google";
+import { Suez_One, Assistant } from "next/font/google";
 import "./globals.css";
 
-// Heebo - modern, clean Hebrew display font (fresh, sophisticated)
-const heebo = Heebo({
+// Suez One - bold, characterful Hebrew display serif (warm, editorial, alive)
+const suezOne = Suez_One({
   variable: "--font-display",
   subsets: ["latin", "hebrew"],
-  weight: ["300", "400", "500", "700", "800"],
+  weight: "400",
   display: "swap",
 });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${assistant.variable}`}>
+    <html lang="he" dir="rtl" className={`${suezOne.variable} ${assistant.variable}`}>
       <body className="font-body antialiased">
         {children}
       </body>

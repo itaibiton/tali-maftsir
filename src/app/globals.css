@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
 html {
   scroll-behavior: smooth;
 }
@@ -17,126 +15,59 @@ section[id] {
 }
 
 :root {
+  /* ===== v2 palette — "עדיפות 1" greens + lime pop + lilac ===== */
+  --green: #35ac61;          /* Chateau Green — primary */
+  --green-deep: #1d4d31;     /* derived deep forest — headings, dark section */
+  --green-ink: #16291c;      /* near-black green — body ink */
+  --mint: #8ddbaa;           /* Algae Green */
+  --mint-soft: #e3f5e9;      /* mint tint for section washes */
+  --lime: #d5f592;           /* Mindaro — the pop */
+  --lime-soft: #edfbcf;
+  --lilac: #c0a9bc;          /* Lily — soft secondary accent */
+  --lilac-soft: #f2eaf0;
+  --cream: #fafcf4;          /* warm canvas */
+  --cream-deep: #f3f7e9;
 
-  /* Green + Coral palette — fresh, sophisticated, popping */
-  --color-primary: #4A7C59;
-  --color-primary-dark: #2D5A3F;
-  --color-primary-light: #D4E8D0;
-  --color-accent: #E8735A;
-  --color-accent-light: #FDEAE6;
-  --color-neutral-50: #FAFBF9;
-  --color-neutral-100: #F4F5F2;
-  --color-neutral-200: #E8E9E5;
-  --color-neutral-600: #4A4A4A;
-  --color-neutral-800: #1A1A1A;
+  /* legacy aliases still referenced by shared components */
+  --color-primary: var(--green);
+  --color-primary-dark: var(--green-deep);
+  --color-primary-light: var(--mint-soft);
+  --color-accent: var(--lime);
+  --color-neutral-50: #fafcf4;
+  --color-neutral-100: #f1f5e9;
+  --color-neutral-200: #e1e9d7;
+  --color-neutral-500: #6b7a6b;
+  --color-neutral-600: #44523f;
+  --color-neutral-800: #16291c;
 
-  /* Font variables will be injected by Next.js font loader */
-
-  --radius: 0.625rem;
-
-  --background: oklch(1 0 0);
-
-  --foreground: oklch(0.145 0 0);
-
-  --card: oklch(1 0 0);
-
-  --card-foreground: oklch(0.145 0 0);
-
-  --popover: oklch(1 0 0);
-
-  --popover-foreground: oklch(0.145 0 0);
-
-  --primary: oklch(0.205 0 0);
-
-  --primary-foreground: oklch(0.985 0 0);
-
-  --secondary: oklch(0.97 0 0);
-
-  --secondary-foreground: oklch(0.205 0 0);
-
-  --muted: oklch(0.97 0 0);
-
-  --muted-foreground: oklch(0.556 0 0);
-
-  --accent: oklch(0.97 0 0);
-
-  --accent-foreground: oklch(0.205 0 0);
-
-  --destructive: oklch(0.577 0.245 27.325);
-
-  --border: oklch(0.922 0 0);
-
-  --input: oklch(0.922 0 0);
-
-  --ring: oklch(0.708 0 0);
-
-  --chart-1: oklch(0.646 0.222 41.116);
-
-  --chart-2: oklch(0.6 0.118 184.704);
-
-  --chart-3: oklch(0.398 0.07 227.392);
-
-  --chart-4: oklch(0.828 0.189 84.429);
-
-  --chart-5: oklch(0.769 0.188 70.08);
-
-  --sidebar: oklch(0.985 0 0);
-
-  --sidebar-foreground: oklch(0.145 0 0);
-
-  --sidebar-primary: oklch(0.205 0 0);
-
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-
-  --sidebar-accent: oklch(0.97 0 0);
-
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-
-  --sidebar-border: oklch(0.922 0 0);
-
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 1rem;
+  --background: var(--cream);
+  --foreground: var(--green-ink);
+  --border: #e1e9d7;
+  --ring: var(--green);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
-  /* Custom colors for Tailwind classes */
-  --color-primary: var(--color-primary);
-  --color-primary-dark: var(--color-primary-dark);
-  --color-primary-light: var(--color-primary-light);
-  --color-accent: var(--color-accent);
-
-  /* Font families */
-  --font-family-display: var(--font-display), "Heebo", "Assistant", "Segoe UI", sans-serif;
-  --font-family-body: var(--font-body), "Assistant", "Heebo", "Segoe UI", "Arial", sans-serif;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
   --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+  --color-ring: var(--ring);
+
+  --color-green: var(--green);
+  --color-green-deep: var(--green-deep);
+  --color-green-ink: var(--green-ink);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-lime: var(--lime);
+  --color-lime-soft: var(--lime-soft);
+  --color-lilac: var(--lilac);
+  --color-lilac-soft: var(--lilac-soft);
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+
+  --font-family-display: var(--font-display), "Suez One", "Heebo", serif;
+  --font-family-body: var(--font-body), "Assistant", "Heebo", sans-serif;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -147,56 +78,116 @@ section[id] {
 }
 
 body {
-  font-family: var(--font-body), "Assistant", "Heebo", "Segoe UI", "Arial", sans-serif;
+  font-family: var(--font-body), "Assistant", "Heebo", "Segoe UI", sans-serif;
   text-align: right;
+  background: var(--cream);
+  color: var(--green-ink);
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Display font for headings - Heebo, modern and clean */
 .font-display {
-  font-family: var(--font-display), "Heebo", "Assistant", sans-serif !important;
-  font-feature-settings: "kern" 1, "liga" 1;
+  font-family: var(--font-display), "Suez One", "Heebo", serif !important;
+  letter-spacing: -0.01em;
 }
 
-/* Body font */
 .font-body {
-  font-family: var(--font-body), "Assistant", "Heebo", "Segoe UI", "Arial", sans-serif;
+  font-family: var(--font-body), "Assistant", "Heebo", sans-serif;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+/* ===== marker highlight — the lime "pop" on headline words ===== */
+.marker-lime {
+  position: relative;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.marker-lime::before {
+  content: "";
+  position: absolute;
+  inset: 0.5em -0.15em -0.05em -0.15em;
+  background: var(--lime);
+  border-radius: 0.3em 0.5em 0.4em 0.6em / 0.6em 0.3em 0.5em 0.4em;
+  transform: rotate(-1deg);
+  z-index: -1;
+}
+
+.marker-lilac::before {
+  background: var(--lilac-soft);
+}
+
+/* ===== organic blob frame for illustrations/animations ===== */
+.blob-frame {
+  border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;
+  overflow: hidden;
+}
+
+.blob-frame-2 {
+  border-radius: 44% 56% 48% 52% / 56% 44% 58% 42%;
+  overflow: hidden;
+}
+
+/* arch frame for the portrait */
+.arch-frame {
+  border-radius: 999px 999px var(--radius-3xl) var(--radius-3xl);
+  overflow: hidden;
+}
+
+/* ===== grain texture overlay ===== */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== marquee strip ===== */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-track {
+  animation: marquee-rtl 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ===== floating leaf accents ===== */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+.float-soft {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+.float-soft-delayed {
+  animation: float-soft 7.5s ease-in-out 1.2s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-soft,
+  .float-soft-delayed {
+    animation: none;
+  }
 }
 
 @layer base {

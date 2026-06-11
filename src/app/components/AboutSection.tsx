@@ -8,44 +8,56 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="w-full relative overflow-hidden bg-[#fefefe] px-6 py-20 md:px-12 lg:px-20"
+      className="w-full relative overflow-hidden bg-[var(--cream)] px-6 py-24 md:px-12 lg:px-20"
     >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row relative h-full">
-        {/* LEFT - Tali's portrait (order-2 on desktop for RTL visual left) */}
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative">
+        {/* Portrait in arch frame (left in RTL) */}
         <motion.div
-          className="order-1 lg:order-2 flex items-center justify-center w-full lg:w-1/2"
+          className="order-1 lg:order-2 flex items-center justify-center w-full lg:w-[42%]"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <div className="relative w-full">
-            <Image
-              src="/images/bg-no-bg-hd.png"
-              alt="טלי מפציר"
-              width={1200}
-              height={1500}
-              quality={100}
-              className="w-full h-auto object-contain"
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+          <div className="relative w-full max-w-sm md:max-w-md">
+            {/* offset arch shapes behind the portrait */}
+            <div className="absolute inset-0 arch-frame bg-[var(--mint)] translate-x-5 translate-y-5" aria-hidden />
+            <div className="absolute inset-0 arch-frame bg-[var(--lilac)]/45 -translate-x-3 translate-y-2" aria-hidden />
+
+            <div className="relative arch-frame bg-[var(--lime-soft)]">
+              <Image
+                src="/images/tali-portrait-1.jpg"
+                alt="טלי מפציר"
+                width={900}
+                height={1100}
+                quality={95}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+              />
+            </div>
+
+            {/* leaf accent */}
+            <div className="absolute -top-7 -left-4 float-soft" aria-hidden>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--green)">
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+              </svg>
+            </div>
           </div>
         </motion.div>
 
-        {/* RIGHT - Text content (order-1 on desktop for RTL visual right) */}
+        {/* Text content (right in RTL) */}
         <motion.div
-          className=" w-full lg:w-1/2 flex flex-col  justify-center"
+          className="order-2 lg:order-1 w-full lg:w-[58%] flex flex-col justify-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-display text-2xl md:text-3xl lg:text-7xl font-bold text-[var(--color-primary-dark)] mb-8">
-            טלי מפציר
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[var(--green-deep)] mb-10">
+            <span className="marker-lime">טלי מפציר</span>
           </h2>
 
-          <div className="space-y-6 text-[var(--color-neutral-600)] text-lg md:text-xl leading-relaxed ">
+          <div className="space-y-6 text-[var(--color-neutral-600)] text-lg md:text-xl leading-relaxed">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +80,7 @@ export default function AboutSection() {
                   </div>
                 }
               >
-                <span className="underline decoration-2 decoration-[var(--color-primary)] underline-offset-2 cursor-help">
+                <span className="underline decoration-[3px] decoration-[var(--green)] underline-offset-4 cursor-help">
                   סאטיה
                 </span>
               </Tooltip>
