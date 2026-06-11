@@ -102,7 +102,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.45 }}
           >
             <PrimaryCtaLink
-              href="https://wa.me/972XXXXXXXXX"
+              href="https://wa.me/972506660011"
               target="_blank"
               rel="noopener noreferrer"
               variant="lime"

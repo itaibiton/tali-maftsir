@@ -114,7 +114,7 @@ export default function CoachingSection() {
               מחיר פגישה: ₪250 | פגישות של 50 דקות | אונליין בזום
             </p>
             <PrimaryCtaLink
-              href="https://wa.me/972XXXXXXXXX"
+              href="https://wa.me/972506660011"
               target="_blank"
               rel="noopener noreferrer"
               icon={<HugeiconsIcon icon={WhatsappIcon} size={24} />}

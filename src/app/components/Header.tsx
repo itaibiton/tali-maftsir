@@ -99,7 +99,7 @@ export default function Header() {
 
         <div className="hidden md:flex items-center">
           <PrimaryCtaLink
-            href="https://wa.me/972XXXXXXXXX"
+            href="https://wa.me/972506660011"
             target="_blank"
             rel="noopener noreferrer"
             variant="lime"
@@ -182,7 +182,7 @@ export default function Header() {
                 className="px-6 pt-4"
               >
                 <PrimaryCtaLink
-                  href="https://wa.me/972XXXXXXXXX"
+                  href="https://wa.me/972506660011"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="lime"

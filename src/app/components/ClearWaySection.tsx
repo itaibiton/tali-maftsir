@@ -105,7 +105,7 @@ export default function ClearWaySection() {
               </span>
             </div>
             <PrimaryCtaLink
-              href="https://wa.me/972XXXXXXXXX"
+              href="https://wa.me/972506660011"
               target="_blank"
               rel="noopener noreferrer"
               variant="lime"

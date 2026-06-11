@@ -136,7 +136,7 @@ export default function B2BSection() {
               מחירים ותנאים מותאמים לגודל הארגון ולצרכים
             </p>
             <PrimaryCtaLink
-              href="https://wa.me/972XXXXXXXXX?text=%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%A2%D7%A1%D7%A7%D7%99%D7%AA"
+              href="https://wa.me/972506660011?text=%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%A2%D7%A1%D7%A7%D7%99%D7%AA"
               target="_blank"
               rel="noopener noreferrer"
               icon={<HugeiconsIcon icon={WhatsappIcon} size={24} />}
